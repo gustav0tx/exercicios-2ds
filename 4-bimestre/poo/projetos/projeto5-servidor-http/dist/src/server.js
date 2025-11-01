@@ -15,4 +15,7 @@ const server = node_http_1.default.createServer((req, res) => {
 server.listen(port, () => {
     console.log(`Servidor funcionando em http://localhost:${port}`);
 });
+server.close(() => {
+    console.log("Servidor encerrado.");
+});
 exports.default = server;
