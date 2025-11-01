@@ -1,25 +1,29 @@
 {
-  "name": "projeto5-servidor-http",
-  "version": "1.0.0",
-  "description": "PROFESSOR: Everson Sousa | TURMA: 2º EM DESENVOLVIMENTO DE SISTEMAS",
-  "main": "index.js",
-  "directories": {
-    "test": "test"
-  },
-  "scripts": {
-    "dev": "node --env-file=.env --watch ",
-    "build": "ts-node ./src/server.ts",
-    "test": "jest"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "devDependencies": {
     "@types/jest": "^30.0.0",
     "@types/node": "^24.9.2",
     "@types/supertest": "^6.0.3",
     "jest": "^30.2.0",
-    "ts-node": "^10.9.2",
+    "supertest": "^7.1.4",
     "typescript": "^5.9.3"
-  }
+  },
+  "dependencies": {
+    "dotenv": "^17.2.3"
+  },
+  "name": "projeto5-servidor-http",
+  "description": "PROFESSOR: Everson Sousa | TURMA: 2º EM DESENVOLVIMENTO DE SISTEMAS",
+  "version": "1.0.0",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "jest dist",
+    "build": "npx tsc",
+    "dev": "npx ts-node ./src/server.ts",
+    "start": "node --watch /dist/server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
