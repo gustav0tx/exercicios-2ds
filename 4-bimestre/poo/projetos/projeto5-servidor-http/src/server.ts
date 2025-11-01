@@ -1,7 +1,7 @@
 import http from 'node:http'
 import 'dotenv/config'
 
-const nome = 'Jonh'
+const nome = 'John'
 const idade = 34
 const port = process.env.PORT
 
