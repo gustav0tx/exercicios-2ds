@@ -8,7 +8,7 @@ const port = process.env.PORT
 const server = http.createServer((req, res) => {
 
     res.statusCode = 200
-    res.write(`Servidor rodando para ${nome}, idade ${idade}!`)
+    res.end(`Servidor rodando para ${nome}, idade ${idade}!`)
 
 })
 
