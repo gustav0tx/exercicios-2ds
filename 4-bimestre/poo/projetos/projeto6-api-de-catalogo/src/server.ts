@@ -6,19 +6,19 @@ import router from './router'
 
 const port = process.env.PORT
 
-const server = express()
-server.use(express.json())
-server.use(helmet())
-server.use(router)
-server.use(express.urlencoded({ extended: true }))
-server.use(express.static(path.join(__dirname, '../public')))
+const app = express()
+app.use(express.json())
+app.use(helmet())
+app.use(router)
+app.use(express.urlencoded({ extended: true }))
+app.use(express.static(path.join(__dirname, '../public')))
 
-server.listen(port, () => {
-    console.log(`Servidor rodando em http://localhost:${port}/
-`)
-}).close(() => {
-  console.log("Servidor encerrado.");
+const server = app.listen(port, () => {
+  console.log(`Servidor rodando em http://localhost:${port}/`)
 })
 
+server.close(() => {
+  console.log("Servidor encerrado.");
+});
 
 export default server;
