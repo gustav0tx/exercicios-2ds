@@ -1,4 +1,5 @@
 import express from 'express'
+import { createServer } from 'node:http'
 import helmet from 'helmet'
 import path from 'path'
 import 'dotenv/config'
@@ -6,18 +7,16 @@ import router from './router'
 
 const port = process.env.PORT
 
-const app = express()
-app.use(express.json())
-app.use(helmet())
-app.use(router)
-app.use(express.urlencoded({ extended: true }))
-app.use(express.static(path.join(__dirname, '../public')))
+const server = express()
+server.use(express.json())
+server.use(helmet())
+server.use(router)
+server.use(express.urlencoded({ extended: true }))
+server.use(express.static(path.join(__dirname, '../public')))
 
-const server = app.listen(port, () => {
+server.listen(port, () => {
   console.log(`Servidor rodando em http://localhost:${port}/`)
-})
-
-server.close(() => {
+}).close(() => {
   console.log("Servidor encerrado.");
 });
 
